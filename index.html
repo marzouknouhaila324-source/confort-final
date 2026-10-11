@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#078ee8">
+    <title>Évaluation du Confort Thermique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="sun-icon">☀️</div>
+
+    <div class="brand">
+        <h1>Évaluation du Confort Thermique</h1>
+        <p>par Logique Floue</p>
+    </div>
+
+    <div class="header-illustration" aria-hidden="true">
+        <svg viewBox="0 0 100 75" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 35 L38 8 L55 23 L55 16 L65 16 L65 31"
+                  fill="none" stroke="white" stroke-width="4"
+                  stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M15 31 V62 H57 V31"
+                  fill="none" stroke="white" stroke-width="4"
+                  stroke-linejoin="round"/>
+            <rect x="33" y="34" width="12" height="25" rx="6"
+                  fill="white" stroke="#e44f5b" stroke-width="3"/>
+            <path d="M39 40 V54" stroke="#e44f5b" stroke-width="4"
+                  stroke-linecap="round"/>
+            <circle cx="39" cy="59" r="7" fill="#e44f5b"
+                    stroke="white" stroke-width="2"/>
+            <path d="M57 57 Q61 29 89 24 Q86 53 57 57 Z"
+                  fill="#80d94b" stroke="white" stroke-width="2"/>
+            <path d="M61 53 L82 30" stroke="#e5ffd5" stroke-width="2"/>
+        </svg>
+    </div>
+</header>
+
+<main class="dashboard">
+
+    <!-- COLONNE GAUCHE -->
+    <section class="left-column">
+
+        <div class="card parameters">
+            <h2 class="section-title">
+                <span class="title-icon">⚙</span>
+                Saisir les paramètres
+            </h2>
+
+            <div class="input-group">
+                <label for="temperature">
+                    <span class="input-icon">🌡️</span>
+                    Température (°C)
+                </label>
+                <input type="number" id="temperature"
+                       min="0" max="45" step="0.5" value="25">
+            </div>
+
+            <div class="input-group">
+                <label for="humidite">
+                    <span class="input-icon">💧</span>
+                    Humidité (%)
+                </label>
+                <input type="number" id="humidite"
+                       min="0" max="100" step="1" value="50">
+            </div>
+
+            <button id="evaluer" type="button">
+                ▦ &nbsp; Évaluer
+            </button>
+
+            <p id="erreur" class="error" role="alert"></p>
+        </div>
+
+        <!-- ILLUSTRATION DE LA MAISON -->
+        <div class="card illustration">
+
+            <svg class="house-drawing"
+                 viewBox="0 0 260 205"
+                 xmlns="http://www.w3.org/2000/svg"
+                 role="img"
+                 aria-label="Maison, thermomètre, goutte d'eau et feuille">
+
+                <!-- Arc vert -->
+                <path d="M47 116 Q31 78 62 43"
+                      fill="none" stroke="#8dce62" stroke-width="2.5"
+                      stroke-linecap="round"/>
+
+                <!-- Arc bleu -->
+                <path d="M164 37 Q197 54 208 89"
+                      fill="none" stroke="#4bc1d0" stroke-width="2.5"
+                      stroke-linecap="round"/>
+
+                <!-- Maison -->
+                <path d="M65 91 L124 40 L183 91"
+                      fill="none" stroke="#204879" stroke-width="4"
+                      stroke-linejoin="round" stroke-linecap="round"/>
+
+                <path d="M77 83 V137 Q77 141 82 141 H166
+                         Q171 141 171 136 V83"
+                      fill="#ffffff" stroke="#204879" stroke-width="4"
+                      stroke-linejoin="round"/>
+
+                <!-- Porte -->
+                <path d="M112 141 V106 Q112 100 118 100 H132
+                         Q138 100 138 106 V141"
+                      fill="#f4fbff" stroke="#204879" stroke-width="3.5"/>
+
+                <!-- Thermomètre -->
+                <rect x="90" y="82" width="15" height="64" rx="7.5"
+                      fill="white" stroke="#204879" stroke-width="3"/>
+
+                <path d="M97.5 94 V130"
+                      stroke="#e74456" stroke-width="4"
+                      stroke-linecap="round"/>
+
+                <circle cx="97.5" cy="144" r="10"
+                        fill="#e74456" stroke="#204879" stroke-width="3"/>
+
+                <!-- Goutte d'eau -->
+                <path d="M158 76
+                         C151 89 141 102 141 114
+                         A17 17 0 0 0 175 114
+                         C175 102 165 89 158 76 Z"
+                      fill="#12b8e9" stroke="#204879" stroke-width="3.5"/>
+
+                <path d="M151 108 Q151 115 156 118"
+                      fill="none" stroke="#b9efff" stroke-width="3"
+                      stroke-linecap="round"/>
+
+                <!-- Feuille -->
+                <path d="M166 151 Q176 120 208 116
+                         Q206 145 178 157 Z"
+                      fill="#78c94b" stroke="#204879" stroke-width="3"
+                      stroke-linejoin="round"/>
+
+                <path d="M175 151 L199 125"
+                      fill="none" stroke="#287f43" stroke-width="2.5"
+                      stroke-linecap="round"/>
+
+                <!-- Ligne verte -->
+                <path d="M111 166 Q130 173 150 166"
+                      fill="none" stroke="#219653" stroke-width="3"
+                      stroke-linecap="round"/>
+            </svg>
+
+            <div class="house-caption">
+                <h3 id="house-title">Un environnement confortable</h3>
+                <p id="house-message">
+                    Une température agréable et une humidité équilibrée
+                    favorisent un quotidien plus sain.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- COLONNE DROITE -->
+    <section class="right-column">
+
+        <!-- SCORE -->
+        <div class="card score-card">
+            <div class="section-heading">
+                <h2>😊 &nbsp; Score de confort</h2>
+                <span class="decorative-leaf">🌿</span>
+            </div>
+
+            <div class="score">
+                <strong id="score">80</strong>
+                <span>/ 100</span>
+            </div>
+
+            <div class="progress-track">
+                <div id="score-bar" class="progress-fill"></div>
+            </div>
+
+            <div id="niveau" class="level">Confort élevé</div>
+        </div>
+
+        <!-- DEGRÉS D'APPARTENANCE -->
+        <div class="membership-section">
+            <h2 class="section-title">
+                <span class="membership-icon">▥</span>
+                Degrés d'appartenance
+            </h2>
+
+            <div class="membership-grid">
+
+                <div class="membership-box temp-box">
+                    <h3>🌡️ &nbsp; Température</h3>
+
+                    <div class="degree-row">
+                        <span>Froide :</span>
+                        <strong id="froide-val">0.00</strong>
+                    </div>
+                    <div class="mini-track">
+                        <div id="froide-bar" class="mini-fill blue"></div>
+                    </div>
+
+                    <div class="degree-row">
+                        <span>Modérée :</span>
+                        <strong id="moderee-val">0.67</strong>
+                    </div>
+                    <div class="mini-track">
+                        <div id="moderee-bar" class="mini-fill cyan"></div>
+                    </div>
+
+                    <div class="degree-row">
+                        <span>Chaude :</span>
+                        <strong id="chaude-val">0.00</strong>
+                    </div>
+                    <div class="mini-track">
+                        <div id="chaude-bar" class="mini-fill orange"></div>
+                    </div>
+                </div>
+
+                <div class="membership-box humidity-box">
+                    <h3>💧 &nbsp; Humidité</h3>
+
+                    <div class="degree-row">
+                        <span>Faible :</span>
+                        <strong id="faible-val">0.00</strong>
+                    </div>
+                    <div class="mini-track">
+                        <div id="faible-bar" class="mini-fill blue"></div>
+                    </div>
+
+                    <div class="degree-row">
+                        <span>Moyenne :</span>
+                        <strong id="moyenne-val">1.00</strong>
+                    </div>
+                    <div class="mini-track">
+                        <div id="moyenne-bar" class="mini-fill cyan"></div>
+                    </div>
+
+                    <div class="degree-row">
+                        <span>Élevée :</span>
+                        <strong id="elevee-val">0.00</strong>
+                    </div>
+                    <div class="mini-track">
+                        <div id="elevee-bar" class="mini-fill orange"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RÉSULTAT FLOU -->
+        <div class="card output-card">
+            <h2 class="section-title">
+                <span>🌿</span>
+                Confort thermique
+            </h2>
+
+            <div class="output-grid">
+
+                <div class="output-box bad">
+                    <span>Mauvais :</span>
+                    <strong id="mauvais-val">0.00</strong>
+                    <div class="output-track">
+                        <div id="mauvais-bar" class="output-fill"></div>
+                    </div>
+                </div>
+
+                <div class="output-box medium">
+                    <span>Moyen :</span>
+                    <strong id="moyen-val">0.00</strong>
+                    <div class="output-track">
+                        <div id="moyen-bar" class="output-fill"></div>
+                    </div>
+                </div>
+
+                <div class="output-box good">
+                    <span>Bon :</span>
+                    <strong id="bon-val">0.67</strong>
+                    <div class="output-track">
+                        <div id="bon-bar" class="output-fill"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- INFORMATION -->
+        <div class="card information">
+            <div class="info-icon">i</div>
+            <div>
+                <h2>Information</h2>
+                <p id="message">
+                    Le niveau de confort est élevé. La température et
+                    l'humidité conduisent à une appréciation favorable
+                    des conditions thermiques.
+                </p>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    Système d'évaluation du confort thermique · Logique floue
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

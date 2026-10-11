@@ -1,0 +1,641 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --blue: #087fe5;
+    --cyan: #08a9e6;
+    --navy: #1d416e;
+    --green: #0ba452;
+    --background: #f0f5f9;
+    --text: #263d57;
+    --border: #dce6ee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 16px;
+    background: var(--background);
+    color: var(--text);
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 13px;
+}
+
+/* En-tête */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-height: 76px;
+    padding: 12px 19px;
+    color: white;
+    background: linear-gradient(110deg, #0879df, #08a9e8);
+    border-radius: 11px;
+    box-shadow: 0 4px 12px rgba(17, 115, 192, 0.13);
+}
+
+.sun-icon {
+    font-size: 29px;
+}
+
+.brand h1 {
+    margin: 0 0 4px;
+    font-size: clamp(18px, 2.5vw, 26px);
+    font-weight: 800;
+    letter-spacing: -0.6px;
+}
+
+.brand p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.header-illustration {
+    width: 100px;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.header-illustration svg {
+    display: block;
+    width: 100%;
+}
+
+/* Organisation du tableau de bord */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: minmax(270px, 0.86fr) minmax(0, 1.3fr);
+    align-items: start;
+    gap: 13px;
+    margin-top: 10px;
+}
+
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.card {
+    padding: 14px;
+    background: #fff;
+    border: 1px solid #e5edf3;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(33, 64, 94, 0.045);
+}
+
+h2 {
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 14px;
+}
+
+.title-icon,
+.membership-icon {
+    color: #1689df;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* Saisie des paramètres */
+
+.parameters {
+    padding: 16px 13px 12px;
+}
+
+.parameters .section-title {
+    margin-bottom: 17px;
+}
+
+.input-group {
+    padding: 10px;
+    margin-bottom: 9px;
+    border: 1px solid #dbe5ed;
+    border-radius: 9px;
+    background: #fff;
+}
+
+.input-group label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.input-icon {
+    font-size: 16px;
+}
+
+.input-group input {
+    width: 100%;
+    height: 36px;
+    padding: 0 10px;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid #d5e0e9;
+    border-radius: 7px;
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #168de0;
+    box-shadow: 0 0 0 3px rgba(22, 141, 224, 0.1);
+}
+
+button {
+    width: 100%;
+    min-height: 38px;
+    margin-top: 1px;
+    color: white;
+    background: linear-gradient(100deg, #087fe5, #08a9e6);
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: filter 0.2s, transform 0.2s;
+}
+
+button:hover {
+    filter: brightness(1.04);
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.error {
+    margin: 7px 0 0;
+    color: #c92f42;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* Illustration de la maison */
+
+.illustration {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    min-height: 260px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 14px 12px 20px;
+    overflow: hidden;
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #ffffff 82%,
+        #e5f7ff 82%,
+        #e5f7ff 100%
+    );
+}
+
+.house-drawing {
+    display: block;
+    width: min(100%, 230px);
+    max-width: 100%;
+    height: auto;
+    max-height: 165px;
+    flex-shrink: 1;
+}
+
+.house-caption {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0 8px;
+    overflow-wrap: anywhere;
+    word-break: normal;
+    text-align: center;
+}
+
+.house-caption h3 {
+    margin: 2px 0 5px;
+    color: #214879;
+    font-size: 12px;
+    font-weight: 750;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+}
+
+.house-caption p {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    color: #507393;
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+}
+
+/* Score de confort */
+
+.score-card {
+    min-height: 156px;
+    padding: 14px 16px 12px;
+    background: #eafaf0;
+    border-color: #e4f4e9;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.section-heading h2 {
+    margin: 0;
+}
+
+.decorative-leaf {
+    font-size: 24px;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 4px;
+    margin: 14px 0 8px;
+}
+
+.score strong {
+    color: #078f4d;
+    font-size: 37px;
+    font-weight: 800;
+    line-height: 1.1;
+    font-variant-numeric: tabular-nums;
+}
+
+.score span {
+    color: #1c3048;
+    font-size: 17px;
+    font-weight: 750;
+}
+
+.progress-track {
+    height: 12px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #dbe5ed;
+}
+
+.progress-fill {
+    width: 80%;
+    height: 100%;
+    border-radius: inherit;
+    background: #0ba452;
+    transition: width 0.35s ease, background 0.25s;
+}
+
+.level {
+    width: fit-content;
+    min-width: 140px;
+    margin: 8px auto 0;
+    padding: 4px 15px;
+    color: #176b39;
+    background: #d5f3dc;
+    border-radius: 18px;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Degrés d'appartenance */
+
+.membership-section {
+    min-width: 0;
+    padding: 2px 1px 0;
+}
+
+.membership-section > .section-title {
+    margin: 0 0 10px;
+}
+
+.membership-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 9px;
+}
+
+.membership-box {
+    min-width: 0;
+    padding: 12px 11px;
+    border-radius: 9px;
+}
+
+.temp-box {
+    background: #fff3ee;
+}
+
+.humidity-box {
+    background: #eaf7ff;
+}
+
+.membership-box h3 {
+    margin: 0 0 15px;
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.degree-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    margin: 9px 0 5px;
+    color: #35485e;
+    font-size: 10px;
+}
+
+.degree-row strong {
+    color: #203957;
+    font-size: 10px;
+    font-variant-numeric: tabular-nums;
+}
+
+.mini-track {
+    height: 7px;
+    overflow: hidden;
+    background: #dce6ed;
+    border-radius: 20px;
+}
+
+.mini-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    transition: width 0.35s ease;
+}
+
+.blue {
+    background: #356cb7;
+}
+
+.cyan {
+    background: #169cde;
+}
+
+.orange {
+    background: #f1a04a;
+}
+
+/* Résultats du confort thermique */
+
+.output-card {
+    padding: 13px 12px;
+    background: #f0f6f9;
+    border-color: #e8eff4;
+    box-shadow: none;
+}
+
+.output-card .section-title {
+    margin-bottom: 10px;
+}
+
+.output-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.output-box {
+    min-width: 0;
+    padding: 9px 7px 8px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.output-box span {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 10px;
+}
+
+.output-box strong {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
+}
+
+.bad {
+    color: #b73546;
+    background: #fff0f0;
+}
+
+.medium {
+    color: #93660b;
+    background: #fff7e3;
+}
+
+.good {
+    color: #087f43;
+    background: #e6f8eb;
+}
+
+.output-track {
+    height: 6px;
+    overflow: hidden;
+    background: rgba(100, 120, 140, 0.16);
+    border-radius: 20px;
+}
+
+.output-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    transition: width 0.35s ease;
+}
+
+.bad .output-fill {
+    background: #f3a1ad;
+}
+
+.medium .output-fill {
+    background: #f4d16d;
+}
+
+.good .output-fill {
+    background: #0ba452;
+}
+
+/* Information */
+
+.information {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 13px;
+    background: #edf8ff;
+    border-left: 4px solid #168fe0;
+    border-radius: 0 9px 9px 0;
+}
+
+.info-icon {
+    display: flex;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: #3569b4;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.information h2 {
+    margin: 0 0 7px;
+    font-size: 14px;
+}
+
+.information p {
+    margin: 0;
+    color: #344d69;
+    font-size: 11px;
+    line-height: 1.65;
+    overflow-wrap: break-word;
+}
+
+footer {
+    padding: 18px 5px 4px;
+    color: #8291a3;
+    font-size: 10px;
+    text-align: center;
+}
+
+/* Tablettes */
+
+@media (max-width: 850px) {
+    body {
+        padding: 10px;
+    }
+
+    .dashboard {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
+
+    .illustration {
+        min-height: 245px;
+    }
+
+    .house-drawing {
+        max-height: 160px;
+    }
+}
+
+/* Téléphones */
+
+@media (max-width: 480px) {
+    body {
+        padding: 8px;
+    }
+
+    .topbar {
+        min-height: 68px;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .sun-icon {
+        font-size: 23px;
+    }
+
+    .brand h1 {
+        font-size: 16px;
+        letter-spacing: -0.4px;
+    }
+
+    .brand p {
+        font-size: 10px;
+    }
+
+    .header-illustration {
+        width: 58px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    .membership-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .output-grid {
+        gap: 5px;
+    }
+
+    .output-box {
+        padding: 9px 4px;
+    }
+
+    .output-box span {
+        font-size: 9px;
+    }
+
+    .output-box strong {
+        font-size: 14px;
+    }
+
+    .illustration {
+        min-height: 235px;
+        padding: 12px 10px 22px;
+        gap: 4px;
+    }
+
+    .house-drawing {
+        max-height: 145px;
+    }
+
+    .house-caption {
+        padding: 0 5px;
+    }
+
+    .house-caption h3 {
+        font-size: 12px;
+    }
+
+    .house-caption p {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .information p {
+        font-size: 10px;
+    }
+}
