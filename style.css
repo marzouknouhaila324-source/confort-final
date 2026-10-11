@@ -639,3 +639,87 @@ footer {
         font-size: 10px;
     }
 }
+
+/* Correction definitive : contenu de la maison */
+
+.left-column {
+    min-width: 0;
+    align-items: stretch;
+}
+
+.illustration {
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 18px 16px 24px !important;
+    overflow: visible !important;
+    background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #ffffff 78%,
+        #e5f7ff 78%,
+        #e5f7ff 100%
+    );
+}
+
+.house-drawing {
+    display: block;
+    width: 100%;
+    max-width: 230px;
+    height: auto !important;
+    max-height: none !important;
+    flex: 0 0 auto;
+}
+
+.house-caption {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: 0 6px;
+    margin: 0;
+    text-align: center;
+    overflow: visible;
+    overflow-wrap: break-word;
+}
+
+.house-caption h3 {
+    width: 100%;
+    margin: 0 0 7px;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.house-caption p {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    white-space: normal;
+}
+
+@media (max-width: 480px) {
+    .illustration {
+        padding: 16px 12px 22px !important;
+    }
+
+    .house-drawing {
+        max-width: 200px;
+    }
+
+    .house-caption {
+        padding: 0 4px;
+    }
+}
